@@ -1,10 +1,8 @@
-import { IsEmail, IsNotEmpty } from "class-validator";
+import { IsNotEmpty, Max } from "class-validator";
 
 
 export class UpdateUserDto {
-    @IsEmail()
-    email: string;
-
     @IsNotEmpty()
+    @Max(255)
     password: string;
 }
