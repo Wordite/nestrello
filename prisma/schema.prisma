@@ -12,3 +12,38 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(100)
+  password     String
+  refreshToken String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  columns      Column[]
+}
+
+model Column {
+  id     Int    @id @default(autoincrement())
+  title  String @db.VarChar(100)
+  order  Int
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
+  cards  Card[]
+}
+
+model Card {
+  id       Int       @id @default(autoincrement())
+  text     String    @db.Text
+  order    Int
+  column   Column    @relation(fields: [columnId], references: [id])
+  columnId Int
+  comments Comment[]
+}
+
+model Comment {
+  id     Int    @id @default(autoincrement())
+  text   String @db.Text
+  card   Card   @relation(fields: [cardId], references: [id])
+  cardId Int
+}
