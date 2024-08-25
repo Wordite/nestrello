@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+
+
+body {
+    background: var(--color-bg);
+
+    color: white;
+    font-family: 'Geist';
+}

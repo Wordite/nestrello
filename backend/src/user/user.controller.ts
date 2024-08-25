@@ -3,6 +3,8 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUserDto';
 import { UpdateUserDto } from './dto/updateUserDto';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
+import { Serialize } from 'src/app/decorators/serialize.decorator';
+import { UserResponseDto } from './dto/userResponseDto';
 
 
 @Controller('users')
@@ -11,12 +13,14 @@ export class UserController {
 
   @Get()
   @UseGuards(JwtGuard)
+  @Serialize(UserResponseDto)
   findAll() {
     return this.userService.getAll()
   }
 
   @Get(':id')
   @UseGuards(JwtGuard)
+  @Serialize(UserResponseDto)
   find(@Param('id') id: string, @Req() req) {
     const userId = req.user.userId
     if (+id !== userId) throw new ForbiddenException()
