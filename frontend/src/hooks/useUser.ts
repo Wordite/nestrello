@@ -12,6 +12,7 @@ function useUser() {
     const { data, isError, isSuccess } = useQuery({
         queryKey: ['user/self'],
         queryFn: () => user.getById(id),
+        retry: false
     })
 
     useEffect(() => {

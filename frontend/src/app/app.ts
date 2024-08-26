@@ -1,8 +1,12 @@
 import axios from "axios"
+import { QueryCache, QueryClient } from "react-query"
 
 class App {
 
-    client = axios.create({
+    readonly queryClient = new QueryClient()
+    readonly queryCache = new QueryCache()
+
+    readonly client = axios.create({
         baseURL: this.getServerUrl()
     })
 

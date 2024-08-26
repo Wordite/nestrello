@@ -24,7 +24,7 @@ function LoginForm() {
   } = useForm()
 
   const { isAuthorized } = useUser()
-  const { mutate, data, status } = useLoginMutation()
+  const { mutate, data, status, error } = useLoginMutation()
   const notifyErrors = useErrorNotification()
   const onSubmit: SubmitHandler<FormValues> = data => mutate(data)
   const onError = (errors: any) => notifyErrors(Object.values(errors))
@@ -37,7 +37,7 @@ function LoginForm() {
   }, [isAuthorized])
 
   useEffect(() => {
-    if (status === 'error') return notifyErrors([{ type: 'error', message: 'При отправке возникла ошибка!' }])
+    if (status === 'error') notifyErrors([{ type: 'error', message: 'При отправке возникла ошибка!' }])
   }, [status])
 
   useEffect(() => {

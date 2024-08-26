@@ -1,15 +1,18 @@
-import { useInitApp } from "@hooks/useInitApp";
-import { PropsWithChildren } from "react";
-
+import { useInitApp } from '@hooks/useInitApp'
+import { Footer } from '@widgets/footer/footer'
+import { Header } from '@widgets/header/header'
+import { PropsWithChildren } from 'react'
 
 function Layout({ children }: PropsWithChildren) {
-    useInitApp()
+  useInitApp()
 
-    return (
-        <main className="container">
-            {children}
-        </main>
-    )
+  return (
+    <>
+      <Header />
+      <main className=''>{children}</main>
+      {/* <Footer /> */}
+    </>
+  )
 }
 
 export { Layout }

@@ -30,6 +30,7 @@
       "@layouts/*": ["app/layouts/*"],
       "@app/*": ["app/*"],
       "@types/*": ["types/*"],
+      "@components/*": ["components/*"],
     }
   },
   "include": ["src"]

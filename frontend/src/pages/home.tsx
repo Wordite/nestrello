@@ -1,7 +1,8 @@
-import { useUser } from "@hooks/useUser"
-import { Layout } from "@layouts/Layout"
-import { useEffect } from "react"
-
+import { useUser } from '@hooks/useUser'
+import { Layout } from '@layouts/Layout'
+import { Columns } from '@widgets/columns/Columns'
+import { Sidebar } from '@widgets/sidebar/sidebar'
+import { useEffect } from 'react'
 
 function Home() {
   const { isAuthorized, user } = useUser()
@@ -12,8 +13,10 @@ function Home() {
 
   return (
     <Layout>
-        <h1 className="text-[200px]">Home</h1>
-        <p>{isAuthorized ? user?.email : ''}</p>
+      <div className='flex'>
+        <Sidebar />
+        <Columns />
+      </div>
     </Layout>
   )
 }
