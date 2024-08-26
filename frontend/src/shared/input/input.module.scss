@@ -1,0 +1,25 @@
+
+
+
+.input {
+    & input, & label {
+        padding: 0 15px;
+    }
+
+    & input:not(:placeholder-shown) ~ label {
+        font-size: 18px;
+        top: -1em;
+        padding: 0;
+    }
+
+    & label {
+        opacity: .75;
+        transition: .3s;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        pointer-events: none;
+    }
+}
+

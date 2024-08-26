@@ -29,6 +29,7 @@
       "@pages/*": ["pages/*"],
       "@layouts/*": ["app/layouts/*"],
       "@app/*": ["app/*"],
+      "@types/*": ["types/*"],
     }
   },
   "include": ["src"]

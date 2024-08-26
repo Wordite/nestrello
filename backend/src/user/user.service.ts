@@ -20,9 +20,6 @@ export class UserService {
     }
 
     create(data: Prisma.UserCreateInput) {
-        const isExist = !!this.prisma.user.findUnique({ where: { email: data.email } })
-        if (isExist) throw new ConflictException('User already exist')
-
         return this.prisma.user.create({ data })
     }
 

@@ -8,10 +8,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#111111',
-        default: '#1f1f1f',
-        secondary: 'rgb(36 35 35)',
-        light: '#9898A1'
+        bg: '#000000',
+        default: '#090909',
+        secondary: '#19191A',
+        light: '#9898A1',
+        primary: '#2B47D2',
+        primaryHover: '#6D1CEF'
       }
     },
   },
