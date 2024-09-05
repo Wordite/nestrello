@@ -31,6 +31,7 @@
       "@app/*": ["app/*"],
       "@types/*": ["types/*"],
       "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
     }
   },
   "include": ["src"]

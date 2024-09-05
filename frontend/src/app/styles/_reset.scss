@@ -45,3 +45,7 @@ table {
 input, input:focus {
     outline: none;
 }
+
+textarea {
+	resize: none;
+}

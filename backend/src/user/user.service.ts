@@ -20,7 +20,15 @@ export class UserService {
     }
 
     create(data: Prisma.UserCreateInput) {
-        return this.prisma.user.create({ data })
+        return this.prisma.user.create({ data: {
+            ...data,
+            columns: {
+                create: {
+                    title: 'Нужно сделать',
+                    order: 1,
+                }
+            }
+        } })
     }
 
     update(id: number, data: Prisma.UserUpdateInput) {

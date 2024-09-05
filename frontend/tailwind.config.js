@@ -14,7 +14,7 @@ export default {
         light: '#9898A1',
         primary: '#2B47D2',
         primaryHover: '#6D1CEF',
-        subSecondary: '#1C1B1B'
+        subSecondary: '#1C1B1B',
       }
     },
 

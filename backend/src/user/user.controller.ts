@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, ForbiddenException, Get, Headers, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, ForbiddenException, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUserDto';
 import { UpdateUserDto } from './dto/updateUserDto';
@@ -21,7 +21,7 @@ export class UserController {
   @Get(':id')
   @UseGuards(JwtGuard)
   @Serialize(UserResponseDto)
-  find(@Param('id') id: string, @Req() req, @Headers('Authorization') token: string) {
+  find(@Param('id') id: string, @Req() req) {
     const userId = req.user.userId
     if (+id !== userId) throw new ForbiddenException()
 
@@ -30,8 +30,6 @@ export class UserController {
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto)
-
     const isExist = !!(await this.userService.getByEmail(createUserDto.email))
     if (isExist) throw new ConflictException('User already exist')
 

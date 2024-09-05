@@ -8,7 +8,7 @@ export function Header() {
   const { logout } = useLogout()
 
   return (
-    <header className='bg-default w-full h-[75px] fixed z-100' style={{ borderBottom: '1px solid var(--color-sub-secondary)' }}>
+    <header className='bg-default w-full h-[75px] fixed z-50' style={{ borderBottom: '1px solid var(--color-sub-secondary)' }}>
       <div className='container h-full flex items-center'>
         <p className='font-bold text-[27px]'>NestTrello</p>
         <div className='ml-auto'>
