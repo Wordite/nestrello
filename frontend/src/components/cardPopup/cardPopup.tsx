@@ -37,7 +37,7 @@ function CardPopup() {
         {card?.text}
 
         <ul>
-          {card?.comments.map(comment => <li>{comment.text}</li>)}
+          {card?.comments?.map(comment => <li>{comment.text}</li>)}
         </ul>
 
         <div

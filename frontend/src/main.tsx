@@ -8,6 +8,7 @@ import { app } from '@app/app'
 import '@styles/index.scss'
 
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={app.queryClient}>

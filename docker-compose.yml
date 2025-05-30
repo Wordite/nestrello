@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:1234@postgres:5432/nestrello
+      - NODE_ENV=production
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=nestrello
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
